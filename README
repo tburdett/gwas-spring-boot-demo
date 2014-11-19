@@ -1,0 +1,12 @@
+GWAS Spring Boot Demo
+=====================
+
+This application was created using the Spring Boot Initializr: http://start.spring.io/
+
+It utilises JDBC, JPA, Solr, Web, Rest Repositories, Thymelead, Actuator and Remote Shell.
+
+This is a demo application that uses an embedded Derby database to persist some basic GWAS information, and serves this data through a HATEOAS RESTful interface.
+
+It should build and run using an embedded Tomcat instance on http://localhost:8080.
+
+Enjoy!
