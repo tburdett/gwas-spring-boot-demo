@@ -22,24 +22,26 @@ import java.util.Collection;
  * @author Tony Burdett
  * @date 14/11/14
  */
-@Controller public class TraitAssociationMvcController {
+@Controller
+public class TraitAssociationMvcController {
     private TraitAssociationRepository traitAssociationRepository;
 
     private StudyRepository studyRepository;
     private SnpRepository snpRepository;
 
-    @Autowired TraitAssociationMvcController(TraitAssociationRepository traitAssociationRepository,
-                                             StudyRepository studyRepository, SnpRepository snpRepository) {
+    @Autowired
+    TraitAssociationMvcController(TraitAssociationRepository traitAssociationRepository,
+                                  StudyRepository studyRepository,
+                                  SnpRepository snpRepository) {
         this.traitAssociationRepository = traitAssociationRepository;
         this.studyRepository = studyRepository;
         this.snpRepository = snpRepository;
     }
 
-    @RequestMapping(value = "/traitAssociations.html",
-                    produces = MediaType.TEXT_HTML_VALUE) String snpTraits(Model model,
-                                                                           @RequestParam(required = false) String rsId,
-                                                                           @RequestParam(required = false)
-                                                                           String pubmedId) {
+    @RequestMapping(value = "/traitAssociations", produces = MediaType.TEXT_HTML_VALUE)
+    String snpTraits(Model model,
+                     @RequestParam(required = false) String rsId,
+                     @RequestParam(required = false) String pubmedId) {
         // rsId trumps pubmedId
         if (rsId != null) {
             Snp snp = snpRepository.findByRsId(rsId);
@@ -47,9 +49,9 @@ import java.util.Collection;
         }
         else {
             if (pubmedId != null) {
-                Collection<Study> studies = studyRepository.findByPubmedId(pubmedId);
+                Study study = studyRepository.findByPubmedId(pubmedId);
                 Collection<TraitAssociation> traitAssociations = new ArrayList<>();
-                studies.forEach(study -> traitAssociations.addAll(traitAssociationRepository.findByStudy(study)));
+                traitAssociations.addAll(traitAssociationRepository.findByStudy(study));
                 model.addAttribute("traits", traitAssociations);
             }
             else {

@@ -15,10 +15,9 @@ public class Study {
     @Id
     @GeneratedValue
     private Long id;
-
     private String pubmedId;
 
-    Study() {
+    public Study() {
     }
 
     Study(String pubmedId) {
@@ -31,6 +30,10 @@ public class Study {
 
     public String getPubmedId() {
         return pubmedId;
+    }
+
+    public void setPubmedId(String pubmedId) {
+        this.pubmedId = pubmedId;
     }
 
     @Override public String toString() {

@@ -14,7 +14,8 @@ import java.util.Collection;
  * @author Tony Burdett
  * @date 14/11/14
  */
-@RepositoryRestResource public interface TraitAssociationRepository extends JpaRepository<TraitAssociation, Long> {
+@RepositoryRestResource
+public interface TraitAssociationRepository extends JpaRepository<TraitAssociation, Long> {
     Collection<TraitAssociation> findByStudy(Study study);
 
     Collection<TraitAssociation> findBySnp(Snp snp);

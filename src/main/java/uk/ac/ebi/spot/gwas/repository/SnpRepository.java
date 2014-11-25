@@ -10,6 +10,7 @@ import uk.ac.ebi.spot.gwas.model.Snp;
  * @author Tony Burdett
  * @date 13/11/14
  */
-@RepositoryRestResource public interface SnpRepository extends JpaRepository<Snp, Long> {
+@RepositoryRestResource
+public interface SnpRepository extends JpaRepository<Snp, Long> {
     Snp findByRsId(String rsId);
 }

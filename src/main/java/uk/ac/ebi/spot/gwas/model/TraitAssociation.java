@@ -16,7 +16,6 @@ public class TraitAssociation {
     @Id
     @GeneratedValue
     private Long id;
-
     private String trait;
 
     @ManyToOne(optional = false)
@@ -49,7 +48,8 @@ public class TraitAssociation {
         return snp;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "TraitAssociation{" +
                 "id=" + id +
                 ", trait=" + trait +

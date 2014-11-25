@@ -12,10 +12,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class Snp {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
-
     private String rsId;
 
     Snp() {
@@ -33,7 +31,8 @@ public class Snp {
         return rsId;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "SNP{" +
                 "id=" + id +
                 ", rsId='" + rsId + '\'' +
