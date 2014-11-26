@@ -1,6 +1,7 @@
 package uk.ac.ebi.spot.gwas.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import uk.ac.ebi.spot.gwas.model.Snp;
 import uk.ac.ebi.spot.gwas.model.Study;
@@ -19,4 +20,8 @@ public interface TraitAssociationRepository extends JpaRepository<TraitAssociati
     Collection<TraitAssociation> findByStudy(Study study);
 
     Collection<TraitAssociation> findBySnp(Snp snp);
+
+    Collection<TraitAssociation> findByStudyId(@Param(value = "q") Long studyId);
+
+    Collection<TraitAssociation> findBySnpId(@Param(value = "q") Long snpId);
 }

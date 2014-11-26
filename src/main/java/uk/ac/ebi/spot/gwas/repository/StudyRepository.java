@@ -1,6 +1,7 @@
 package uk.ac.ebi.spot.gwas.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import uk.ac.ebi.spot.gwas.model.Study;
 
@@ -12,5 +13,5 @@ import uk.ac.ebi.spot.gwas.model.Study;
  */
 @RepositoryRestResource
 public interface StudyRepository extends JpaRepository<Study, Long> {
-    Study findByPubmedId(String pubmedId);
+    Study findByPubmedId(@Param(value = "q") String pubmedId);
 }
