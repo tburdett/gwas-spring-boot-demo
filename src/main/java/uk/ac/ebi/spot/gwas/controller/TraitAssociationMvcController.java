@@ -29,10 +29,9 @@ public class TraitAssociationMvcController {
     private StudyRepository studyRepository;
     private SnpRepository snpRepository;
 
-    @Autowired
-    TraitAssociationMvcController(TraitAssociationRepository traitAssociationRepository,
-                                  StudyRepository studyRepository,
-                                  SnpRepository snpRepository) {
+    @Autowired TraitAssociationMvcController(TraitAssociationRepository traitAssociationRepository,
+                                             StudyRepository studyRepository,
+                                             SnpRepository snpRepository) {
         this.traitAssociationRepository = traitAssociationRepository;
         this.studyRepository = studyRepository;
         this.snpRepository = snpRepository;

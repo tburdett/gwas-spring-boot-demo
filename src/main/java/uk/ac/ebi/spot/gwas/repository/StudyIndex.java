@@ -1,7 +1,7 @@
 package uk.ac.ebi.spot.gwas.repository;
 
 import org.springframework.data.solr.repository.SolrCrudRepository;
-import uk.ac.ebi.spot.gwas.model.Study;
+import uk.ac.ebi.spot.gwas.model.StudyDocument;
 
 /**
  * Javadocs go here!
@@ -9,5 +9,5 @@ import uk.ac.ebi.spot.gwas.model.Study;
  * @author Tony Burdett
  * @date 22/12/14
  */
-public interface StudyIndex extends SolrCrudRepository<Study, String> {
+public interface StudyIndex extends SolrCrudRepository<StudyDocument, String> {
 }

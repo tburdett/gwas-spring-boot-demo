@@ -21,8 +21,7 @@ import uk.ac.ebi.spot.gwas.repository.StudyRepository;
 public class StudyMvcController {
     private StudyRepository studyRepository;
 
-    @Autowired
-    public StudyMvcController(StudyRepository studyRepository) {
+    @Autowired public StudyMvcController(StudyRepository studyRepository) {
         this.studyRepository = studyRepository;
     }
 

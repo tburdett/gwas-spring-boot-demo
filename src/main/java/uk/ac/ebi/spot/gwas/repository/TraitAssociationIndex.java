@@ -1,7 +1,7 @@
 package uk.ac.ebi.spot.gwas.repository;
 
 import org.springframework.data.solr.repository.SolrCrudRepository;
-import uk.ac.ebi.spot.gwas.model.TraitAssociation;
+import uk.ac.ebi.spot.gwas.model.TraitAssociationDocument;
 
 /**
  * Javadocs go here!
@@ -9,5 +9,5 @@ import uk.ac.ebi.spot.gwas.model.TraitAssociation;
  * @author Tony Burdett
  * @date 22/12/14
  */
-public interface TraitAssociationIndex extends SolrCrudRepository<TraitAssociation, String> {
+public interface TraitAssociationIndex extends SolrCrudRepository<TraitAssociationDocument, String> {
 }

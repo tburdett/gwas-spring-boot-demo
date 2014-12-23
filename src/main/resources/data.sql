@@ -1,5 +1,11 @@
 -- studies
-insert into study(pubmed_id) values('18464913');
+insert into study(author, publication, title, pubmed_id)
+values('Melzer D', 'PLoS Genet', 'A genome-wide association study identifies protein quantitative trait loci (pQTLs)', '18464913');
+insert into study(author, publication, title, pubmed_id)
+values('Yang J', 'Hum Mol Genet','ELF1 is associated with systemic lupus erythematosus in Asian populations', '21044949');
+insert into study(author, publication, title, pubmed_id)
+values('Christie JD', 'PLoS Onet','Genome wide association identifies PPFIA1 as a candidate gene for acute lung injury risk following major trauma','22295056');
+
 
 -- snps
 insert into snp(rs_id) values('rs4796217');
