@@ -9,25 +9,25 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  * @author Tony Burdett
  * @date 23/12/14
  */
-@SolrDocument
+@SolrDocument(solrCoreName = "gwas")
 public class TraitAssociationDocument {
     @org.springframework.data.annotation.Id @Field
-    private Long id;
+    private String id;
     @Field
     private String trait;
     @Field
-    private String studyTitle;
+    private String title;
     @Field
-    private String snpRsId;
+    private String rsId;
 
     public TraitAssociationDocument(TraitAssociation traitAssociation) {
-        this.id = traitAssociation.getId();
+        this.id = traitAssociation.getClass().getName().concat("_").concat(traitAssociation.getId().toString());
         this.trait = traitAssociation.getTrait();
-        this.studyTitle = traitAssociation.getStudy().getTitle();
-        this.snpRsId = traitAssociation.getSnp().getRsId();
+        this.title = traitAssociation.getStudy().getTitle();
+        this.rsId = traitAssociation.getSnp().getRsId();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -35,11 +35,11 @@ public class TraitAssociationDocument {
         return trait;
     }
 
-    public String getStudyTitle() {
-        return studyTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getSnpRsId() {
-        return snpRsId;
+    public String getRsId() {
+        return rsId;
     }
 }

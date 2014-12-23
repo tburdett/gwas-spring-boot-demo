@@ -9,19 +9,19 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  * @author Tony Burdett
  * @date 23/12/14
  */
-@SolrDocument
+@SolrDocument(solrCoreName = "gwas")
 public class SnpDocument {
     @org.springframework.data.annotation.Id @Field
-    private Long id;
+    private String id;
     @Field
     private String rsId;
 
     public SnpDocument(Snp snp) {
-        this.id = snp.getId();
+        this.id = snp.getClass().getName().concat("_").concat(snp.getId().toString());
         this.rsId = snp.getRsId();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

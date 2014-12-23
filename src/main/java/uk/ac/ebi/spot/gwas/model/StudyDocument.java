@@ -9,10 +9,10 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  * @author Tony Burdett
  * @date 23/12/14
  */
-@SolrDocument
+@SolrDocument(solrCoreName = "gwas")
 public class StudyDocument {
     @org.springframework.data.annotation.Id @Field
-    private Long id;
+    private String id;
     @Field
     private String pubmedId;
     @Field
@@ -23,14 +23,14 @@ public class StudyDocument {
     private String publication;
 
     public StudyDocument(Study study) {
-        this.id = study.getId();
+        this.id = study.getClass().getName().concat("_").concat(study.getId().toString());
         this.pubmedId = study.getPubmedId();
         this.title = study.getTitle();
         this.author = study.getAuthor();
         this.publication = study.getPublication();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

@@ -31,11 +31,12 @@ public class Application {
 
     @Bean CommandLineRunner run() {
         return strings -> {
-            snpRepository.findAll().forEach(snp -> snpIndex.save(new SnpDocument(snp)));
-            studyRepository.findAll().forEach(study -> studyIndex.save(new StudyDocument(study)));
-            traitAssociationRepository.findAll()
-                    .forEach(traitAssociation -> traitAssociationIndex.save(new TraitAssociationDocument(
-                            traitAssociation)));
+            studyRepository.findAll().forEach(
+                    study -> studyIndex.save(new StudyDocument(study)));
+            snpRepository.findAll().forEach(
+                    snp -> snpIndex.save(new SnpDocument(snp)));
+            traitAssociationRepository.findAll().forEach(
+                    traitAssociation -> traitAssociationIndex.save(new TraitAssociationDocument(traitAssociation)));
         };
     }
 }
