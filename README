@@ -10,3 +10,20 @@ This is a demo application that uses an embedded Derby database to persist some 
 It should build and run using an embedded Tomcat instance on http://localhost:8080.
 
 Enjoy!
+
+Solr Indexer
+------------
+
+I've revamped this slightly to perform Solr indexing.  Now, running the application connect to a Solr server running on
+localhost:8983 (so you'll need a Solr installation).
+
+To set this up, download the Solr release and copy the example/ directory from the Solr root location into the solr/
+directory alongside this README file.  Make sure you don't overwrite the config files checked in, though, as these add
+some config options.
+
+Once done, you should be able to run this application to extract model objects via JPA and store them via Solr.  Then,
+you can query the Solr server as normal (e.g. using the admin client which should be available at http://localhost:8983/solr/#/gwas).
+
+The type of entity is stored in the Solr 'resourcename' field and is available for facetting, so you can, for example, do queries like:
+    http://localhost:8983/solr/gwas/select?q=text%3Ars*&wt=json&indent=true&facet=true&facet.field=resourcename
+(query on text: field for values 'rs*' and facet on resourcename)
