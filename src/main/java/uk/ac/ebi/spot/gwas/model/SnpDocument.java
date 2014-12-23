@@ -15,10 +15,13 @@ public class SnpDocument {
     private String id;
     @Field
     private String rsId;
+    @Field
+    private String resourcename;
 
     public SnpDocument(Snp snp) {
         this.id = snp.getClass().getName().concat("_").concat(snp.getId().toString());
         this.rsId = snp.getRsId();
+        this.resourcename = snp.getClass().getSimpleName();
     }
 
     public String getId() {
@@ -27,6 +30,10 @@ public class SnpDocument {
 
     public String getRsId() {
         return rsId;
+    }
+
+    public String getResourcename() {
+        return resourcename;
     }
 
     @Override

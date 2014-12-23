@@ -19,12 +19,15 @@ public class TraitAssociationDocument {
     private String title;
     @Field
     private String rsId;
+    @Field
+    private String resourcename;
 
     public TraitAssociationDocument(TraitAssociation traitAssociation) {
         this.id = traitAssociation.getClass().getName().concat("_").concat(traitAssociation.getId().toString());
         this.trait = traitAssociation.getTrait();
         this.title = traitAssociation.getStudy().getTitle();
         this.rsId = traitAssociation.getSnp().getRsId();
+        this.resourcename = traitAssociation.getClass().getSimpleName();
     }
 
     public String getId() {
@@ -41,5 +44,9 @@ public class TraitAssociationDocument {
 
     public String getRsId() {
         return rsId;
+    }
+
+    public String getResourcename() {
+        return resourcename;
     }
 }

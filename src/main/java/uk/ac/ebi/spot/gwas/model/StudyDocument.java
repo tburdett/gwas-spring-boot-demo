@@ -21,6 +21,8 @@ public class StudyDocument {
     private String author;
     @Field
     private String publication;
+    @Field
+    private String resourcename;
 
     public StudyDocument(Study study) {
         this.id = study.getClass().getName().concat("_").concat(study.getId().toString());
@@ -28,6 +30,7 @@ public class StudyDocument {
         this.title = study.getTitle();
         this.author = study.getAuthor();
         this.publication = study.getPublication();
+        this.resourcename = study.getClass().getSimpleName();
     }
 
     public String getId() {
@@ -48,5 +51,9 @@ public class StudyDocument {
 
     public String getPublication() {
         return publication;
+    }
+
+    public String getResourcename() {
+        return resourcename;
     }
 }
