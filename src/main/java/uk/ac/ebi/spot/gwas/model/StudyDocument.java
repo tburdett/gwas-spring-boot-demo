@@ -1,6 +1,7 @@
 package uk.ac.ebi.spot.gwas.model;
 
 import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  */
 @SolrDocument(solrCoreName = "gwas")
 public class StudyDocument {
-    @org.springframework.data.annotation.Id @Field
+    @Id @Field
     private String id;
     @Field
     private String pubmedId;
@@ -25,7 +26,7 @@ public class StudyDocument {
     private String resourcename;
 
     public StudyDocument(Study study) {
-        this.id = study.getClass().getName().concat("_").concat(study.getId().toString());
+        this.id = "study_".concat(study.getId().toString());
         this.pubmedId = study.getPubmedId();
         this.title = study.getTitle();
         this.author = study.getAuthor();

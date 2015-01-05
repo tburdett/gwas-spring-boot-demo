@@ -1,6 +1,7 @@
 package uk.ac.ebi.spot.gwas.model;
 
 import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
  */
 @SolrDocument(solrCoreName = "gwas")
 public class TraitAssociationDocument {
-    @org.springframework.data.annotation.Id @Field
+    @Id @Field
     private String id;
     @Field
     private String trait;
@@ -23,7 +24,7 @@ public class TraitAssociationDocument {
     private String resourcename;
 
     public TraitAssociationDocument(TraitAssociation traitAssociation) {
-        this.id = traitAssociation.getClass().getName().concat("_").concat(traitAssociation.getId().toString());
+        this.id = "trait_association_".concat(traitAssociation.getId().toString());
         this.trait = traitAssociation.getTrait();
         this.title = traitAssociation.getStudy().getTitle();
         this.rsId = traitAssociation.getSnp().getRsId();

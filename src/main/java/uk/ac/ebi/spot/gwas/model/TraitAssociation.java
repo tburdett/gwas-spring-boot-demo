@@ -1,7 +1,5 @@
 package uk.ac.ebi.spot.gwas.model;
 
-import org.apache.solr.client.solrj.beans.Field;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,9 +14,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class TraitAssociation {
     @Id @GeneratedValue
-//    @org.springframework.data.annotation.Id @Field
     private Long id;
-//    @Field
     private String trait;
 
     @ManyToOne(optional = false)

@@ -1,10 +1,5 @@
 package uk.ac.ebi.spot.gwas.model;
 
-//import org.springframework.data.annotation.Id;
-
-import org.apache.solr.client.solrj.beans.Field;
-import org.springframework.data.solr.core.mapping.SolrDocument;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,9 +13,7 @@ import javax.persistence.Id;
 @Entity
 public class Snp {
     @Id @GeneratedValue
-//    @org.springframework.data.annotation.Id @Field
     private Long id;
-//    @Field
     private String rsId;
 
     Snp() {
